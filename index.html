@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="src/styles/styles.css">
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Plataforma Climática</title>
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <img src="src/images/Logo_Conclima.png" alt="Logo da Plataforma" width="250">
+            
+            <ul id="nav_list">
+                <li class="nav-item active">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Repositório</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#maps">Mapas</a>
+                </li>
+            </ul>
+
+            <button class= "btn-default" id="botao-conclima"> 
+                Acesse nosso site
+            </button>
+
+            <button id="mobile_btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </nav>
+
+        <div id="mobile_menu">  
+            <ul id="mobile_nav_list">
+                <li class="nav-item">
+                    <a href="#home">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu">Repositório</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#maps">Mapas</a>
+                </li>
+            </ul>
+
+            <button class= "btn-default" id="botao-conclima" > 
+                Acesse nosso site
+            </button>
+        </div>
+
+    </header>
+
+    <main id="content">
+        <section id="home">
+
+            <div class="shape"></div>
+            <div id="cta">
+                <h1 id="title"> 
+                    Portal da Gestão
+                    Climática e Prevenção 
+                        de Desastres
+                </h1>
+
+                <p class="description"> 
+                     Respositório de Links e blá blá blá   
+                </p>
+
+                <div id="cta_buttons">
+                    <a href="#menu" class="btn-default">
+                        Repositório                    
+                    </a>
+
+                 <a href="tel:+556121016075" id="phone_button">
+                    <button class="btn-default">
+                        <i class="fa-solid fa-phone"></i>
+                    </button>
+                    (61) 2101-6075
+                 </a>   
+                </div>
+
+                <div class="social-media-buttons">
+                    <a href="https://www.facebook.com/portalcnm/?_rdr">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="https://m.instagram.com/portalcnm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="contato@conclima.org.br">
+                        <i class="fa-brands fa-at"></i>
+                    </a>
+                </div>
+            </div>  
+
+            <div id="banner">
+                <img src="src/images/banner.PNG" alt="banner" width="500"> 
+
+            </div>
+
+        </section>
+
+
+        <section id="menu">
+
+            <div class="filtros" id="filtro-chave">
+                <input type="hidden" id="temaLink" value="todos">
+                <input type="text" id="palavra" placeholder="Filtrar por palavra-chave..." />
+            </div> 
+
+            <h2 class="section-title" id="sectionTitle">Repositório</h2>
+            <h3 class="section-subtitle" id="sectionSubtitle">Temas mais relevantes</h3>
+        
+            <div class="temas-container" id="container">
+                <div class="tema-card" onclick="filtrartema('ALT')" data-tooltip="Links e ferramentas disponíveis para recebimento de alertas de emergência.">
+                    <i class="fa-solid fa-triangle-exclamation" id="icone"></i>  
+                    <span>Alerta</span>
+                    <a href="#temaLink"></a>                 
+                </div>           
+
+                <div class="tema-card" onclick="filtrartema('CPCT')" data-tooltip="Links e ferramentas disponíveis para realizar capacitação na área de gestão climática e gestão de riscos e desastres.">
+                    <i class="fa-solid fa-graduation-cap" id="icone"></i>
+                    <span>Capacitação</span> 
+                </div>
+
+                <div class="tema-card" onclick="filtrartema('GERE')" data-tooltip="Links e ferramentas relacionados ao gerenciamento em caso de desastres.">
+                    <i class="fa-solid fa-clipboard-list" id="icone"></i>                       
+                    <span>Gerenciamento de Desastres</span>
+                </div>
+                    
+                <div class="tema-card" onclick="filtrartema('MP')" data-tooltip="Links e ferramentas disponíveis com informações georreferenciadas.">
+                    <i class="fa-solid fa-map" id="icone"></i>                       
+                    <span>Mapeamento</span>
+                </div>
+                    
+                <div class="tema-card" onclick="filtrartema('MNT')" data-tooltip="Links e ferramentas que possibilitam o monitoramento de diversos tipos de eventos climáticos, geológicos ou hidrológicos.">
+                    <i class="fa-solid fa-tower-cell" id="icone"></i>                       
+                    <span>Monitoramento<span>
+                </div>
+                  
+                <div class="tema-card" onclick="filtrartema('PVS')" data-tooltip="Links e ferramentas com informações atualizadas sobre previsão do tempo e monitoramento climático.">                
+                    <i class="fa-solid fa-cloud-rain" id="icone"></i>                       
+                    <span>Previsão</span>          
+                </div> 
+            </div>
+        </div>
+
+        </section>
+
+        <section id="resultados">
+
+            <div class="voltar" id="voltarBtn">
+                <button onclick="mostrarTemas()">← Voltar aos temas</button>
+            </div>
+
+            <div class="resultadosFiltros" id="containerLinks"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <img src="src/images/wave.svg" alt="">
+
+        <div id="footer_items">
+            <span id="copyright">
+                &copy 2025 CNM
+            </span>
+
+            <div class="social-media-buttons">
+                    <a href="https://m.facebook.com/portalcnm/">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="https://m.instagram.com/portalcnm">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="contato@conclima.org.br">
+                        <i class="fa-brands fa-at"></i>
+                    </a>
+                </div>
+        </div>
+
+    </footer>    
+<script src="src/javascript/script.js">
+
+</script>
+</body>
+</html>
