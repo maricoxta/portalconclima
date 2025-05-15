@@ -1,15 +1,28 @@
-footer {
+#footer {
     background-color: #63a886;
+    height: 20px;
 }
 
 #footer_items {
-    display: flex;
-    justify-content: space-between;
     padding: 0px 8% 24px 8%;
-    align-items: center;
+    font-size: 20px;
+    border-bottom: 2px;
+    position: absolute;
+    z-index: 2;
+    justify-content: space-between;
 }
 
 #copyright {
     color: #1d1d1d;
-    font-weight: 500;
+    z-index: 3;    
 }
+
+@media screen and (max-width: 1170px) {
+
+#copyright {
+    font-size: 13px;
+}
+
+#footer_items {
+    display: none;
+}};

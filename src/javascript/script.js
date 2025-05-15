@@ -53,6 +53,17 @@ $(document).ready(function() {
         distance:'20%'
     });
 
+    window.onload = function () {
+    const temas = document.getElementById("temasContainer");
+    if (temas) {
+      temas.style.display = "grid"; // ou "flex", dependendo do seu layout
+    }
+
+    const palavra = document.getElementById("filtros");
+    if (palavra) {
+      palavra.value = ""; // limpa o campo de busca ao voltar
+    }
+  };
 
     const links= [
         {
@@ -364,8 +375,28 @@ $(document).ready(function() {
         ministerio: "Ministério da Ciência, Tecnologia e Inovação (MCTI)",
         instituicao: "CPTEC/INPE",
         assunto: "Portal com informações atualizadas sobre previsão do tempo, monitoramento climático, modelagem atmosférica, satélites meteorológicos e emissão de avisos especiais."
-      }      
-];
+      },
+      {
+        titulo: "Map Biomas Alerta",
+        descricao: "A iniciativa MapBiomas Alerta é um sistema de validação e refinamento de alertas de desmatamento com imagens de satélite de alta resolução (Planet 3,7m). Para cada alerta publicado, é disponibilizado um laudo pronto detalhado de forma aberta e gratuita.",
+        url: "https://plataforma.alerta.mapbiomas.org/",
+        tema: 'ALT',
+        subtema: "Alerta",
+        ministerio: '-',
+        instituicao: "Organizações Não Governamentais",
+        assunto: "A iniciativa MapBiomas Alerta é um sistema de validação e refinamento de alertas de desmatamento com imagens de satélite de alta resolução (Planet 3,7m). Para cada alerta publicado, é disponibilizado um laudo pronto detalhado de forma aberta e gratuita.",
+      },
+      {
+        titulo: "Sistema de Estimativas de Emissões e Remoções de Gases de Efeito Estufa (SEEG)",
+        descricao: "O SEEG é a principal plataforma de monitoramento de emissões de gases de efeito estufa na América Latina e uma das maiores bases de dados nacionais de emissões do mundo. Ele fornece estimativas anuais de emissões de gases de efeito estufa no Brasil para todos os setores da economia, numa plataforma on-line de fácil acesso.",
+        url: 'https://seeg.eco.br/',
+        tema: 'MNT',
+        subtema: 'Monitoramento',
+        ministerio: '-',
+        instituicao: "Observatório do Clima",
+        assunto: "O SEEG é a principal plataforma de monitoramento de emissões de gases de efeito estufa na América Latina e uma das maiores bases de dados nacionais de emissões do mundo. Ele fornece estimativas anuais de emissões de gases de efeito estufa no Brasil para todos os setores da economia, numa plataforma on-line de fácil acesso.",
+      }
+      ];
 
 $(document).ready(function () {
   const $inputTema = $('#temaLink');
@@ -373,8 +404,8 @@ $(document).ready(function () {
   const $containerLinks = $('#containerLinks');
   const $containerTemas = $('#container');
   const $btnVoltar = $('#voltarBtn');
-  const $title = $('sectionTitle');
-  const $subtitle = $('sectionSubtitle')
+  const $title = $('.sectionTitle');
+  const $subtitle = $('.sectionSubtitle')
 
   function filtrarLinks() {
     const temaSelecionado = $inputTema.val().toLowerCase();
@@ -400,9 +431,8 @@ $(document).ready(function () {
       const card = $(`
         <div class="card">
           <h3>${link.titulo}</h3>
-          <p><strong>Ministério:</strong> ${link.ministerio}</p>
           <p><strong>Instituição:</strong> ${link.instituicao}</p>
-          <p>${link.descricao}</p>
+          <p><strong>Descrição:</strong>${link.descricao}</p>
           <p><a href="${link.url}" target="_blank">Acessar</a></p>
         </div>
       `);
@@ -412,7 +442,7 @@ $(document).ready(function () {
 
    window.filtrartema = function (tema) {
     $inputTema.val(tema);
-    $inputFiltro.val('');
+    $inputFiltro.hide('');
     $('#home').hide();
     $containerTemas.hide();
     $btnVoltar.show();
@@ -427,18 +457,19 @@ $(document).ready(function () {
   window.mostrarTemas = function () {
     $('#home').show();
     $containerTemas.css('display', 'grid');
+    $inputFiltro.hide('');
     $btnVoltar.hide();
     $containerLinks.hide();
     $inputTema.val('todos');
     $title.show();
     $subtitle.show();
+    $inputFiltro.show('');
   };
 
   $inputFiltro.on('input', function () {
     $('#home').hide();
     $containerTemas.hide();
     $btnVoltar.show();
-    $
     $containerLinks.show();
     $inputTema.val('todos');
     $title.hide();
