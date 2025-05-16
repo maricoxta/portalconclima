@@ -92,8 +92,7 @@
 #palavra {
     position: absolute;
     top: 13vh;
-    left: 50vh;
-    width: 200vh;
+    width: 70%;
     padding: 15px;
     border-radius: 8px;
     justify-content: center;
