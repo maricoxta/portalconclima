@@ -8,6 +8,10 @@
 
 }
 
+.voltar {
+    display: none;
+}
+
 .section-title {
     position: absolute;
     color: #004D3B; 
@@ -57,14 +61,13 @@
     justify-content:center;
     margin: 20px; /* Centraliza horizontalmente */
     font-size: 3rem;
-    color: #eedc17ad;    
+    color: #FA813A;  
 }
 
 .containerLinks {
     left: 50%;
     top: 0;
     background-color: #005d47;
-    color: white;
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 14px;
@@ -138,7 +141,7 @@
     #icone {
         align-items: center;
         font-size: 25px;
-        color: #eedc17ad;    
+        color: #FA813A;    
     }
 
 

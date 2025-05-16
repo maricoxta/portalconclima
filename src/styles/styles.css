@@ -27,7 +27,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #eedc17ad; ;
+    background-color: #eedc17ad;
     padding: 10px 14px;
     font-weight: 600;
     box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.1);
@@ -72,25 +72,26 @@ section {
     align-items: center;
     justify-content: center;
     top: 10vh;
-    transform: translateY(-590px);
+    transform: translateY(px);
 }
 
 .voltar {
-    display:block;
-    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
-.voltar button {
+#voltarBtn {
     background-color: #005d47;
-    color: white;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
     font-size: 14px;
     cursor: pointer;
     margin: 20px;
-    top: 30vh;
-    position: absolute;
+    top: 10vh;
+    width: 30vh;
+    left: 50%;
+    justify-content: center;
 }
 
 .card {
@@ -103,7 +104,7 @@ section {
     height: 100%;
     width: 100%;
     z-index: 2;
-    top: 110vh;
+    top: 0;
     position: relative;
 }
 
@@ -113,7 +114,7 @@ section {
  }
 
 .card a {
-    color: #ffb700;
+    color: #FA813A;
     text-decoration: none;
     font-weight: bold;
 }

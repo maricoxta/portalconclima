@@ -2,14 +2,14 @@ $(document).ready(function() {
     $('#mobile_btn').on('click', function() {
         $('#mobile_menu').toggleClass('active');
         $('#mobile_btn').find('i').toggleClass('fa-x');
-    });
+    })});
 
      $(document).ready(function () {
     $('#botao-conclima').on('click', function () {
       window.open('https://conclima.org.br', '_blank');
     });
     });
-
+  
 
     const sections = $('section');
     const navItems = $('.nav-item');
@@ -63,7 +63,7 @@ $(document).ready(function() {
     if (palavra) {
       palavra.value = ""; // limpa o campo de busca ao voltar
     }
-  };
+  }
 
     const links= [
         {
@@ -398,6 +398,8 @@ $(document).ready(function() {
       }
       ];
 
+
+
 $(document).ready(function () {
   const $inputTema = $('#temaLink');
   const $inputFiltro = $('#palavra');
@@ -411,19 +413,20 @@ $(document).ready(function () {
     const temaSelecionado = $inputTema.val().toLowerCase();
     const termo = $inputFiltro.val().toLowerCase().trim();
 
-    // LIMPA container antes de tudo
-    $containerLinks.innerHTML = "";
+    $containerLinks.empty();
 
-    // Adiciona imagem no topo se o tema for gerenciamento
-    if (temaSelecionado === 'GERE') {
-      const imagemTopo = document.createElement("img");
-      imagemTopo.src = "src/images/Conclima.jpg"; // caminho da imagem
-      imagemTopo.alt = "Imagem sobre Gerenciamento de Desastres";
-      imagemTopo.style.width = "300px";
-      imagemTopo.style.top = "100px";
-      imagemTopo.style.marginBottom = "20px";
-      imagemTopo.style.borderRadius = "10px";
-    $containerTemas.appendChild(imagemTopo);
+    // Adiciona imagem no topo se o tema for GERE
+    if (temaSelecionado === 'gere') {
+      const imagemTopo = $('<img>', {
+        src: 'src/images/Conclima.jpg',
+        alt: 'Imagem sobre Gerenciamento de Desastres',
+        css: {
+          width: '100%',
+          marginBottom: '20px',
+          borderRadius: '10px'
+        }
+      });
+      $containerLinks.append(imagemTopo);
     }
 
     const filtrados = links.filter(link => {
@@ -435,64 +438,66 @@ $(document).ready(function () {
       return temaOk && palavraOk;
     });
 
-    $containerLinks.empty();
-
     if (filtrados.length === 0) {
       $containerLinks.html('<p>Nenhum resultado encontrado.</p>');
       return;
     }
 
     filtrados.forEach(link => {
-      const card = $(`
+      const cardHtml = `
         <div class="card">
           <h3>${link.titulo}</h3>
           <p><strong>Instituição:</strong> ${link.instituicao}</p>
-          <p><strong>Descrição:</strong>${link.descricao}</p>
+          <p><strong>Descrição:</strong> ${link.descricao}</p>
           <p><a href="${link.url}" target="_blank">Acessar Link</a></p>
         </div>
-      `);
+      `;
+      const card = $(cardHtml);
       $containerLinks.append(card);
     });
+
+    $btnVoltar.show();
   }
 
-   window.filtrartema = function (tema) {
+
+  window.filtrartema = function (tema) {
     $inputTema.val(tema);
-    $inputFiltro.hide('');
+    $inputFiltro.hide();
     $('#home').hide();
     $('#menu').hide();
     $('.infoDesastres').hide();
     $containerTemas.hide();
-    $btnVoltar.show();
     $containerLinks.show();
+    $btnVoltar.show();
     $title.hide();
-    $subtitle.hide();  
+    $subtitle.hide();
 
     filtrarLinks();
   };
 
   window.mostrarTemas = function () {
     $('#home').show();
-    $containerTemas.css('display', 'grid');
-    $inputFiltro.hide('');
-    $btnVoltar.show();
+    $('#menu').show();
+    $containerTemas.show();
+    $inputFiltro.val('').show();
+    $btnVoltar.hide();
     $containerLinks.hide();
+    $containerLinks.empty();
     $inputTema.val('todos');
     $title.show();
     $subtitle.show();
-    $inputFiltro.show('');
-     $('.infoDesastres').hide('GERE');
+    $('.infoDesastres').hide();
   };
 
   $inputFiltro.on('input', function () {
     $('#home').hide();
     $containerTemas.hide();
-    $btnVoltar.show();
     $containerLinks.show();
+    $btnVoltar.show();
     $inputTema.val('todos');
     $title.hide();
     $subtitle.hide();
-    
+
     filtrarLinks();
-  });
-});
-});
+  
+})});
