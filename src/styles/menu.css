@@ -88,10 +88,12 @@
     
 }
 #palavra {
-    position: absolute;
+    position: grid;
     top: 13vh;
     padding: 15px;
     border-radius: 8px;
+    grid-template-rows: 1fr;
+    width: 10vh;
     justify-content: center;
     align-items: center;
     background-color: #ebfffa;
