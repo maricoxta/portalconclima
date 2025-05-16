@@ -47,6 +47,7 @@
     justify-items: center;
     border-radius: 12px;
     text-align: center;
+    position: relative;
 }
 
 .tema-card span {
