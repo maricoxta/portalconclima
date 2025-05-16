@@ -87,12 +87,9 @@
     height: 10px;
     
 }
-
-
 #palavra {
     position: absolute;
     top: 13vh;
-    width: 50%;
     padding: 15px;
     border-radius: 8px;
     justify-content: center;
