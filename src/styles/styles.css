@@ -82,6 +82,7 @@ section {
 
 #voltarBtn {
     background: #005d47;
+    background-color: #005d47;
     padding: 10px 20px;
     border: none;
     border-radius: 8px;
@@ -90,7 +91,7 @@ section {
     margin: 20px;
     top: 10vh;
     width: 30vh;
-    left: 50%;
+    left: 100vh;
     justify-content: center;
 }
 
