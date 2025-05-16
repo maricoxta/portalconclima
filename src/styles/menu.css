@@ -57,7 +57,7 @@
 }
 
 .tema-card::after {
-    content: attr(title);
+    content: attr(data-tooltip);
     position: absolute;
     bottom: 50%;
     left: 50%;
