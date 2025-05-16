@@ -173,7 +173,7 @@
         flex-wrap: wrap;
         height: auto;
         width: auto;
-        left: 100vh;
+        left: 50%;
         top: 210px;
     }
     #menu h2 {
