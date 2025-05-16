@@ -132,8 +132,11 @@ section {
     text-decoration: underline;
 }
 
-
-
+@media screen and (max-width: 1170px) {
+    
+.btn-default {
+    color:  #FA813A; 
+}
 
 
 
