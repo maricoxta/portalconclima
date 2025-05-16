@@ -405,11 +405,26 @@ $(document).ready(function () {
   const $containerTemas = $('#container');
   const $btnVoltar = $('#voltarBtn');
   const $title = $('.sectionTitle');
-  const $subtitle = $('.sectionSubtitle')
+  const $subtitle = $('.sectionSubtitle');
 
   function filtrarLinks() {
     const temaSelecionado = $inputTema.val().toLowerCase();
     const termo = $inputFiltro.val().toLowerCase().trim();
+
+    // LIMPA container antes de tudo
+    $containerLinks.innerHTML = "";
+
+    // Adiciona imagem no topo se o tema for gerenciamento
+    if (temaSelecionado === 'GERE') {
+      const imagemTopo = document.createElement("img");
+      imagemTopo.src = "src/images/Conclima.jpg"; // caminho da imagem
+      imagemTopo.alt = "Imagem sobre Gerenciamento de Desastres";
+      imagemTopo.style.width = "300px";
+      imagemTopo.style.top = "100px";
+      imagemTopo.style.marginBottom = "20px";
+      imagemTopo.style.borderRadius = "10px";
+    $containerTemas.appendChild(imagemTopo);
+    }
 
     const filtrados = links.filter(link => {
       const temaOk = temaSelecionado === 'todos' || link.tema.toLowerCase() === temaSelecionado;
@@ -433,7 +448,7 @@ $(document).ready(function () {
           <h3>${link.titulo}</h3>
           <p><strong>Instituição:</strong> ${link.instituicao}</p>
           <p><strong>Descrição:</strong>${link.descricao}</p>
-          <p><a href="${link.url}" target="_blank">Acessar</a></p>
+          <p><a href="${link.url}" target="_blank">Acessar Link</a></p>
         </div>
       `);
       $containerLinks.append(card);
@@ -444,12 +459,13 @@ $(document).ready(function () {
     $inputTema.val(tema);
     $inputFiltro.hide('');
     $('#home').hide();
+    $('#menu').hide();
+    $('.infoDesastres').hide();
     $containerTemas.hide();
     $btnVoltar.show();
     $containerLinks.show();
     $title.hide();
-    $subtitle.hide();
-    
+    $subtitle.hide();  
 
     filtrarLinks();
   };
@@ -458,12 +474,13 @@ $(document).ready(function () {
     $('#home').show();
     $containerTemas.css('display', 'grid');
     $inputFiltro.hide('');
-    $btnVoltar.hide();
+    $btnVoltar.show();
     $containerLinks.hide();
     $inputTema.val('todos');
     $title.show();
     $subtitle.show();
     $inputFiltro.show('');
+     $('.infoDesastres').hide('GERE');
   };
 
   $inputFiltro.on('input', function () {

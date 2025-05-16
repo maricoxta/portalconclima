@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 100vh;
+    height: 150vh;
+    top: 30vh;
 
 }
 
@@ -72,41 +73,24 @@
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s ease;
+    position: relative;
  }      
 
 
-.card {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    margin-bottom: 20px;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-}
-
-.card h3 {
-    color: #005d47;
-    font-size: 18px;
- }
-
-.card a {
-    color: #ffb700;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.card a:hover {
-    text-decoration: underline;
+.infoDesastres {
+    text-align: center;
+    display:block;
+    width: 20px;
+    height: 10px;
+    
 }
 
 
 #palavra {
     position: absolute;
     top: 13vh;
-    left: 62vh;
-    width: 80vh;
+    left: 50vh;
+    width: 100vh;
     padding: 15px;
     border-radius: 8px;
     justify-content: center;
