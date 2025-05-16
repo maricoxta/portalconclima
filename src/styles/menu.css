@@ -110,7 +110,8 @@
     padding: 15px;
     border-radius: 8px;
     grid-auto-rows: 100px;
-    top: 30vh;
+    top: 25vh;
+    left: 60vh;
     justify-content: center;
     background-color: #ebfffa;
     }
