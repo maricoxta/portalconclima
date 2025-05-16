@@ -56,24 +56,20 @@
     
 }
 
-.tema-card::after {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #005d47;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 6px;
-    white-space: normal;
-    text-align: center;
-    font-size: 14px;
-    width: 220px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
-    z-index: 10;
+.tema-card[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  font-size: 12px;
+  z-index: 10;
+}
     
 
 #icone {
